@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
+import { GitHubServiceProvider } from '../../providers/git-hub-service/git-hub-service';
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'list.html',
+  providers: [GitHubServiceProvider]
 })
 export class ListPage {
-  selectedItem: any;
-  items: string[];
 
-  constructor() {
-    // Let's populate this page with some filler content for funzies
-    this.items = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+  public username = 'jalbertsr'
+  public repos
+
+  constructor(private githubService: GitHubServiceProvider) {}
+
+  ngOnInit () {
+    this.githubService.getUserRepos(this.username)
+        .subscribe(data => this.repos = data)
+    console.log(this.repos)
+    }
   }
-}

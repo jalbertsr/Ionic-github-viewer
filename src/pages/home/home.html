@@ -15,6 +15,7 @@
     </ion-item>
   </ion-list>
   <div padding>
-    <button ion-button color="primary" block (click)="getUser();">Search</button>
+    <button ion-button color="primary" block (click)="renderUser()">Search</button>
   </div>
+  <img high="1000px" width="1000px" [src]="loaded ? data.avatar_url : logo">
 </ion-content>

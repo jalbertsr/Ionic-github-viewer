@@ -8,12 +8,21 @@ import { GitHubServiceProvider } from '../../providers/git-hub-service/git-hub-s
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private githubService: GitHubServiceProvider) {
-  }
+  public username = ''
+  public logo = 'https://assets-cdn.github.com/images/modules/logos_page/Octocat.png'
+  public data
+  public loaded = false
 
-  getUser () : void {
-    console.log('hola')
-    console.log(this)
-    this.githubService.getUserInfo()
+  constructor(public navCtrl: NavController, private githubService: GitHubServiceProvider) {}
+
+  ngOnInit() {}
+  
+  renderUser () {
+    this.githubService.getUserInfo(this.username)
+        .subscribe(data => {
+          this.data = data
+          this.loaded = true
+          console.log(this.data)
+        })
   }
 }
