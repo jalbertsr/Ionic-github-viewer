@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, Output, EventEmitter } from '@angular/core'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable'
 @Injectable()
 export class GitHubServiceProvider {
 
+  @Output() onUserSearch: EventEmitter<any> = new EventEmitter<any>()
   constructor(private http: Http) {}
 
   public getUserInfo(username) {
