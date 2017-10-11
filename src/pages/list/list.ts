@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { GitHubServiceProvider } from '../../providers/git-hub-service/git-hub-service';
+import { Component } from '@angular/core'
+import { GitHubServiceProvider } from '../../providers/git-hub-service/git-hub-service'
 
 @Component({
   selector: 'page-list',
@@ -16,6 +16,5 @@ export class ListPage {
   ngOnInit () {
     this.githubService.getUserRepos(this.username)
         .subscribe(data => this.repos = data)
-    console.log(this.repos)
-    }
   }
+}

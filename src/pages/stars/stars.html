@@ -6,7 +6,13 @@
       <ion-title>Starred Repos</ion-title>
     </ion-navbar>
   </ion-header>
-  <ion-content padding>
-    <h3></h3>
-    
+  
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let stars of starred" >
+        {{ stars.name }}  
+        <ion-icon name="git-branch">{{ stars.forks }}</ion-icon>
+        <ion-icon name="star">{{ stars.stargazers_count }}</ion-icon>
+      </button>
+    </ion-list>
   </ion-content>

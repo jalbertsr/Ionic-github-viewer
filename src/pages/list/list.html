@@ -9,8 +9,10 @@
 
 <ion-content>
   <ion-list>
-    <!-- <button ion-item *ngFor="let repo of repos">
-      {{ repo }}
-    </button>   -->
+    <button ion-item *ngFor="let repo of repos" >
+      {{ repo.name }}  
+      <ion-icon name="git-branch">{{ repo.forks }}</ion-icon>
+      <ion-icon name="star">{{ repo.stargazers_count }}</ion-icon>
+    </button>
   </ion-list>
 </ion-content>

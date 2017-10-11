@@ -13,25 +13,34 @@ export class GitHubServiceProvider {
 
   public getUserInfo(username) {
     return this.http.get(`https://api.github.com/users/${username}`)
-                .do(this.logResponse)
+                // .do(this.logResponse)
                 .map(this.extractData)
                 .catch(this.handleError)
                
-   }
+  }
 
-   public getUserRepos(username) {
+  public getUserRepos(username) {
     return this.http.get(`https://api.github.com/users/${username}/repos`)
+               // .do(this.logResponse)
+               .map(this.extractData)
+               .catch(this.handleError)
+  }
+
+  public getUserStars(username) {
+    return this.http.get(`https://api.github.com/users/${username}/starred`)
                .do(this.logResponse)
                .map(this.extractData)
                .catch(this.handleError)
-   }
+  }
 
-  private extractData(res: Response) {
+
+
+  private extractData(res) {
     return res.json()
   }
 
-  private logResponse(res: Response) {
-    console.log(res)
+  private logResponse(res) {
+    console.log(res, 'Service')
   }
 
   private handleError (error: Response | any) {
