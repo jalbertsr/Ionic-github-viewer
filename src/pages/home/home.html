@@ -17,10 +17,13 @@
   <div padding>
     <button ion-button color="primary" block (click)="renderUser()">Search</button>
   </div>
-  <img high="1000px" width="1000px" [src]="loaded ? data.avatar_url : logo">
-  <h6 class="">@{{ loaded ? data.login : 'Octocat' }}</h6>
-  <h6 class="">Repos: {{loaded ? data.public_repos : 'Hundreds' }}</h6>
-  <h6 class="">Followers: {{loaded ? data.followers : 'Thusends'}}</h6>
-  <h6 class="">Following: {{loaded ? data.following : 'Millions'}}</h6>
+  <div>
+    <img high="1000px" width="1000px" [src]="loaded ? data.avatar_url : logo" >
+    <h6>User: @{{ loaded ? data.login : 'Octocat' }}</h6>
+    <h6>Repos: {{ loaded ? data.public_repos : 'Hundreds' }}</h6>
+    <h6>Followers: {{ loaded ? data.followers : 'Thusends' }}</h6>
+    <h6>Following: {{ loaded ? data.following : 'Millions' }}</h6>
+  </div>
+  
 
 </ion-content>
