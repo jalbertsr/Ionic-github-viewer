@@ -2,7 +2,6 @@
 
 [![Ionic](https://github.com/jalbertsr/logo-badge-images/blob/master/img/rsz_ionic.png?raw=true)](https://ionicframework.com/)
 
---- 
 This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
 ## How to use this template
